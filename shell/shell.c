@@ -166,7 +166,9 @@ void shell_receive_char(char c)
 
     if (c == '\b')
     {
-        s_shell.rx_buffer[--s_shell.rx_size] = '\0';
+		if (s_shell.rx_size > 0) {
+			s_shell.rx_buffer[--s_shell.rx_size] = '\0';
+		}
         return;
     }
 
